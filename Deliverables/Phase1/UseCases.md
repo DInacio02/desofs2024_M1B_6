@@ -93,8 +93,6 @@ As a User
 
 
 
-
-
 ## MANAGER
 
 - Use case 1 (Diogo):
@@ -128,6 +126,7 @@ As a Manager
 I want to create and manage discounts/coupons
 So that I can run promotional campaigns and incentivize purchases.
 ```
+
 
 
 ## ADMIN
