@@ -302,7 +302,19 @@ create table verification_token
 );
 
 INSERT INTO keyist.oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES ('test', 'resource-server-rest-api', '$2a$04$v8DNBoc36pw4c7b7Xyq/aeSpGneF9WciZUI9FibVz0neksUcPBXVS', 'read,write', 'password,authorization_code,refresh_token,implicit', null, 'USER', 10800, 2592000, null, null);
-INSERT INTO keyist.product_category (id, name) VALUES (1, 'Test');
-INSERT INTO keyist.color (id, name, hex) VALUES (1, 'red', '#ff144b');
-INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (1, 1, '000-0001', 'Test', 'test', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s. ', '2018-05-18 09:50:48', '2020-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (1, 1, 1, '4cm', '10cm', 9.99, 'Copper 70%, Zinc 30%', 5, 10, 6, 1000, 1, 'image-url-here', 'image-url-here');
+INSERT INTO keyist.product_category (id, name) VALUES (1, 'Keychain');
+
+INSERT INTO keyist.color (id, name, hex) VALUES (1, 'blue', '#32e5fc');
+
+INSERT INTO keyist.color (id, name, hex) VALUES (2, 'purple', '#fc42da');
+
+INSERT INTO keyist.color (id, name, hex) VALUES (3, 'hotpink', '#fa0c50');
+
+INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (1, 1, '000-0001', 'Astronaut', 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s. ', '2018-05-18 09:50:48', '2020-10-22 01:55:43', 1);
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (1, 1, 1, '4cm', '10cm', 14.99, 'Copper 70%, Zinc 30%', 5, 10, 6, 1000, 1, 'https://m.media-amazon.com/images/I/61em3CI5OsL._AC_UY350_.jpg', 'https://m.media-amazon.com/images/I/61em3CI5OsL._AC_UY350_.jpg');
+
+INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (2, 1, '000-0002', 'Hello Kitty Clone', 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s. ', '2018-05-18 09:50:48', '2020-10-22 01:55:43', 1);
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (2, 2, 2, '4cm', '10cm', 9.99, 'Copper 70%, Zinc 30%', 5, 10, 6, 1000, 1, 'https://i.ebayimg.com/images/g/85YAAOSwg2VkdUgF/s-l1200.webp', 'https://i.ebayimg.com/images/g/85YAAOSwg2VkdUgF/s-l1200.webp');
+
+INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (3, 1, '000-0003', 'Hello Kitty', 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s. ', '2018-05-18 09:50:48', '2020-10-22 01:55:43', 1);
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (3, 3, 3, '4cm', '10cm', 24.99, 'Copper 70%, Zinc 30%', 5, 10, 6, 1000, 1, 'https://i.ebayimg.com/images/g/XYsAAOSwcTxleQFh/s-l500.jpg', 'https://i.ebayimg.com/images/g/XYsAAOSwcTxleQFh/s-l500.jpg');
