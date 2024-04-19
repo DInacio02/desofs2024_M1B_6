@@ -65,7 +65,7 @@ Os níveis de confiança representam os tipos de acesso ao sistema que diferenta
 
 Nesta secção, é apresentado o Data Flow Diagram que explica como os dados são transmitidos pelos diferentes componentes do sistema.
 
-![DataFlowDiagram.png](DataFlowDiagram.png)
+![DataFlowDiagram.png](../Design/DataFlowDiagram.png)
 
 Assim sendo, tal como é possível observar existem 5 componentes no sistema: o Client Server, o Resource Server, o Authentication Server, a base de dados (SQL Server) e o sistema de gestão de ficheiros (File API).
 Adicionalmente é possível identificar que os diferentes utilizadores fazem pedidos ao Client Server que por sua vez irá fazer pedidos ao Authentication Server e ao Resource Server que se necessário irão fazer pedidos ao SQL Server para armazenamento de dados ou no caso do Resource Server à File API para gestão de ficheiros.
