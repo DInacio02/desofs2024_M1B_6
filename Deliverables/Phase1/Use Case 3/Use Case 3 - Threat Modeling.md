@@ -1,5 +1,13 @@
 # Threat Modeling para "Ver e Filtrar uma Lista de Produtos"
 
+## Descrição do Caso de Uso
+
+```
+As a User
+I want to be able to see and filter a list of products
+So that I can easily search for the product I want to buy
+```
+
 ## Determinar Ameaças
 
 ### Lista de Ameaças STRIDE
@@ -24,7 +32,17 @@
 
 ### Casos de Uso e Abuso
 
+**Casos de Uso:**
 
+- **Pesquisa por palavra-chave:** O utilizador utiliza a barra de pesquisa para procurar porta-chaves específicos, inserindo palavras-chave relacionadas ao material, cor ou estilo desejado.
+- **Filtragem por material:** O utilizador utiliza os filtros para ver apenas os porta-chaves feitos de um determinado material, como metal, plástico ou couro.
+- **Filtragem por cor:** O utilizador utiliza os filtros para encontrar porta-chaves de várias cores, como verde, azul ou amarelo.
+- **Combinação de pesquisa e filtros:** O utilizador utiliza tanto a barra de pesquisa quanto os filtros para refinar ainda mais a sua busca, procurando porta-chaves com palavras-chave específicas numa categoria de material ou cor.
+
+**Abusos:**
+
+- **Injeção de Código Malicioso:** Um atacante pode tentar injetar código malicioso na barra de pesquisa, explorando vulnerabilidades de XSS, para comprometer a segurança do sistema ou obter acesso não autorizado a informações sensíveis.
+- **Ataques de Sobrecarga:** Um atacante pode tentar sobrecarregar o sistema enviando uma grande quantidade de solicitações de pesquisa ou filtragem de forma maliciosa, causando uma negação de serviço temporária para os utilizadores legítimos.
 
 ## Contramedidas e Mitigação
 
