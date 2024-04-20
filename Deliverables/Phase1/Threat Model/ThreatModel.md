@@ -55,9 +55,9 @@ Os níveis de confiança representam os tipos de acesso ao sistema que diferenta
 | 1  | Utilizador anónimo                   | Utilizador que interage com o sistema mas nao forneceu credenciais de login                                                           |
 | 2  | Utilizador com credenciais válidas   | Utilizador que interage e se conecta com o sistema após um login com sucesso                                                          |
 | 3  | Utilizador com credenciais inválidas | Utilizador que interage com o sistema e tenta se conectar com o mesmo mas não fornece credenciais válidas                             |
-| 4  | Administrador do sistema             | O administrador que possui permissões para qualquer tipo de operação no sistema                                                       |
+| 4  | Cliente                              | O cliente que possui permissões para procurar/comprar produtos e fazer encomendas                                                     |
 | 5  | Manager                              | O manager que possui permissões especificas para adicionar criar/remover produtos e promoçoes tal como ver todas as vendas do sistema |
-| 6  | Cliente                              | O cliente que possui permissões para procurar/comprar produtos e fazer encomendas                                                     |
+| 6  | Administrador do sistema             | O administrador que possui permissões para qualquer tipo de operação no sistema                                                       |
 | 7  | Processo de serviço web              | O processo de serviço web que tem acesso a todas as componentes do sistema                                                            |
 
 
