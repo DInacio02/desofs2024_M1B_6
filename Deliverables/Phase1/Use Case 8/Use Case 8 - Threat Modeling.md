@@ -12,7 +12,7 @@ So that I can use the application
 
 ## Possíveis Ameaças no Caso de Uso
 
-Através da lista de ameaças STRIDE é possível identificar 1 possívil ameaça providiente da tentativa do user fazer login com as suas credenciais.
+Através da lista de ameaças STRIDE é possível identificar 1 ameaça providiente da tentativa do user fazer login com as suas credenciais.
 
 - Uma ameaça Spoofing onde o hacker tenta aceder às credenciais do utilizador de alguma forma.
 
