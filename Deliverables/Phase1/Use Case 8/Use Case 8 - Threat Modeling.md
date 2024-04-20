@@ -20,9 +20,17 @@ Através da lista de ameaças STRIDE é possível identificar 1 possívil ameaç
 
 ### Spoofing
 
-![Login-Threat Tree Diagram.png](..%2FDesign%2FLogin-Threat%20Tree%20Diagram.png)
+![Login-Threat Tree Diagram.png](Login-Threat%20Tree%20Diagram.png)
 
-Como é possível observar o diagrama acima o Hacker pode tentar através de diversas formas fazer login na conta de um utilizador, como é o exemplo o misuse case onde é possível através de tentativa e erro tentar descobrir a conta de alguém.
-Mas é possível combater esses misuse cases com as tecnicas de mitigação descritas nos quadrados azuis.
+**Casos de Abuso:**
+
+- **Forçar entrada por tentativa e erro:** Um atacante pode abusar de a aplicação não ter nenhuma forma de para a tentativa consecutiva de login.
+
+**Mitigação:**
+
+- **Implementar um timeout na sessão:** Mitigação parcial
+- **Implementar um limite de tentativas no login:** Mitigação parcial
+- **Implementar um erro comum de falha de login:** Mitigação total
+
 
 #### Nota:  A análise STRIDE deste documento apenas cobre como o hacker pode abusar do caso de uso de Login. Outras ameaças que seriam possiveis dependendo da conta que o Hacker consiga aceder serão descritas nos .md especificos do caso de uso referente a essa ameaça.

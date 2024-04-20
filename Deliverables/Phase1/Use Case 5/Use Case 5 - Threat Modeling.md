@@ -30,4 +30,10 @@ A falta de proteção destes dados pode levar a grandes riscos de segurança par
 
 ![OrderHijack-ThreatModel.png](OrderHijack-ThreatModel.png)
 
-Como é possivel ver na imagem acima um misuse case onde o hacker pode alterar o local de entrega de uma encomenda e assim ficar com os produtos comprados por outra pessoa, criando assim problemas para a empresa e o utilizador.
+**Casos de Abuso:**
+
+- **Mudar o endereço de entrega de uma encomenda:** Um atacante com acesso aos dados do utilizador pode mudar o endereço de entrega do utilizador e receber as encomendas do mesmo.
+
+**Mitigação:**
+
+- **Não permitir a mudança do endereço de entrega depois de uma encomenda ser criada:** Mitigação parcial
