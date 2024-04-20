@@ -10,17 +10,6 @@ So that I can use the application
 
 ## Determinar Ameaças
 
-### Lista de Ameaças STRIDE
-
-| Tipo                   | Descrição                                                                                                                 | Controlo de Segurança |
-|------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Spoofing               | Ação de ameaça destinada a aceder e usar credenciais de outro utilizador, como nome de utilizador e palavra-passe.        | Autenticação          |
-| Tampering              | Ação de ameaça com a intenção de alterar ou modificar maliciosamente dados persistentes.                                  | Integridade           |
-| Repudiation            | Ação de ameaça destinada a realizar operações proibidas num sistema que não possui a capacidade de rastrear as operações. | Não Repúdio           |
-| Information Disclosure | Ação de ameaça com a intenção de ler um ficheiro ao qual não foi concedido acesso, ou ler dados em trânsito.              | Confidencialidade     |
-| Denial of Service      | Ação de ameaça que tenta negar acesso a utilizadores válidos.                                                             | Disponibilidade       |
-| Elevation of Privilege | Ação de ameaça com a intenção de obter acesso privilegiado a recursos.                                                    | Autorização           |
-
 ## Análise de Ameaças
 
 ### Compreensão das Ameaças
