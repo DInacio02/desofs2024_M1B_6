@@ -4,19 +4,20 @@
 
 ### Dependências Externas
 
-Na tabela que se segue, são apresentadas todas as dependências externas que poderão ser  utilizadas como pontos de ataque. A sua identificação será feita com recurso a:
+Na tabela que se segue, são apresentadas todas as dependências externas que poderão ser utilizadas como pontos de ataque. A sua identificação será feita com recurso a:
 
 1. ID - Um identificador único para cada dependência
 2. Descrição - Explicação da dependência
 
-| ID | Descrição |
-|----|-----------|
-| 1  |           |
-| 2  |           |
+| ID | Descrição                                                                                                                                                                                                                                                                        |
+|----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1  | A aplicação será executada em servidores baseados na Cloud, pelo que se perderá o controlo global sobre a segurança do sistema operativo e da aplicação. Por conseguinte, o serviço baseado na Cloud escolhido deve ser fiável, a fim de satisfazer as necessidades dos clientes |
+| 2  | A ligação entre os servidores de resources, de autorização e da base de dados deve ser efectuada através de uma rede privada                                                                                                                                                     |
+| 3  | A comunicação entre o cliente e o backend deve utilizar certificados TLS/SSL                                                                                                                                                                                                     |
 
 ### Pontos de Entrada
 
-Os pontos de entrada representam interfaces com que os atacantes poderão interagir de forma a atacar a aplicação. Na table seguinte, são apresentados os pontos de entrada do sistema em estudo, organizando a informação destes da seguinte forma:
+Os pontos de entrada representam interfaces com que os atacantes poderão interagir de forma a atacar a aplicação. Na tabela seguinte, são apresentados os pontos de entrada do sistema em estudo, organizando a informação destes da seguinte forma:
 
 1. ID - Um identificador único para cada ponto de entrada
 2. Nome - Um nome que identifica o ponto de entrada
@@ -119,4 +120,43 @@ Cada um destes por sua vez irá enviar resposta a cada componente que fez o pedi
 
 Nesta secção será apresentada como a determinação de ameaças foi realizada.
 
+![Use Case Diagram - Desofs.svg](..%2FAnalysis%20and%20Requirements%2FUse%20Case%20Diagram%20-%20Desofs.svg)
+
+Os casos de uso a vermelho são os casos de uso com riscos associados, e a sua análise foi feita através mnemônica STRIDE
+e foram desenvolvidos relatórios individuais para cada caso de uso.
+
+### Lista de Ameaças STRIDE
+
+<br>
+
+| Tipo                   | Descrição                                                                                                                 | Controlo de Segurança |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| Spoofing               | Ação de ameaça destinada a aceder e usar credenciais de outro utilizador, como nome de utilizador e palavra-passe.        | Autenticação          |
+| Tampering              | Ação de ameaça com a intenção de alterar ou modificar maliciosamente dados persistentes.                                  | Integridade           |
+| Repudiation            | Ação de ameaça destinada a realizar operações proibidas num sistema que não possui a capacidade de rastrear as operações. | Não Repúdio           |
+| Information Disclosure | Ação de ameaça com a intenção de ler um ficheiro ao qual não foi concedido acesso, ou ler dados em trânsito.              | Confidencialidade     |
+| Denial of Service      | Ação de ameaça que tenta negar acesso a utilizadores válidos.                                                             | Disponibilidade       |
+| Elevation of Privilege | Ação de ameaça com a intenção de obter acesso privilegiado a recursos.                                                    | Autorização           |
+
+<br>
+
+- [Caso de uso 3 - Threat Modeling](..%2FUse%20Case%203%2FUse%20Case%203%20-%20Threat%20Modeling.md)
+- [Caso de uso 5 - Threat Modeling](..%2FUse%20Case%205%2FUse%20Case%205%20-%20Threat%20Modeling.md)
+- [Caso de uso 7 - Threat Modeling](..%2FUse%20Case%207%2FUse%20Case%207%20-%20Threat%20Modeling.md)
+- [Caso de uso 8 - Threat Modeling](..%2FUse%20Case%208%2FUse%20Case%208%20-%20Threat%20Modeling.md)
+- [Caso de uso 9 - Threat Modeling](..%2FUse%20Case%209%2FUse%20Case%209%20-%20Threat%20Modeling.md)
+
 ### Ranking de Ameaças e Modelo de Risco Qualitativo
+
+<br>
+
+| Ameaça                                              | Nível de Risco |
+|-----------------------------------------------------|----------------|
+| Sobrecarga do sistema com solicitações maliciosas   | Alto           |
+| Injeção de código SQL na barra de pesquisa          | Alto           |
+| Inserção de scripts maliciosos na barra de pesquisa | Alto           |
+| Acesso a dados privados do utilizador               | Médio          |
+| Acesso a permissões de administrador                | Alto           |
+| Phishing                                            | Baixo          |
+<sup>Para maiores detalhes sobre cada ameaça, consultar os documentos de análise individual de cada caso de uso</sup>
+
