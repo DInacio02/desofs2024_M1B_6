@@ -75,24 +75,6 @@ I want to be able to request a password forgot request
 So that I can recover my account
 ```
 
-- Use case 10 (Tiago):
-
-```
-As a User
-I want to be able to request a password forgot request
-So that I can recover my account
-```
-
-- Use case 11 (Download/Upload):
-
-```
-As a User
-...
-...
-```
-
-
-
 ## MANAGER
 
 - Use case 1 (Diogo):
