@@ -30,7 +30,7 @@ tornando-o lento ou indisponível.
 - **(Tampering):** Injetar código SQL nos campos de entrada de dados, aproveitando-se de falhas de validação ou sanitização.
 - **(Spoofing/Tampering):** Inserir scripts maliciosos, comprometendo a segurança do sistema ou roubando informações 
 confidenciais dos utilizadores.
-- **(Information Disclosure):** Interceção do pedido de forma a conseguir ver os credenciais do utilizador que está a 
+- **(Spoofing/Information Disclosure):** Interceção do pedido de forma a conseguir ver os credenciais do utilizador que está a 
 criar a conta.
 
 ### Casos de Uso e Abuso
