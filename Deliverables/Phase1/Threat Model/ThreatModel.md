@@ -145,6 +145,8 @@ e foram desenvolvidos relatórios individuais para cada caso de uso.
 - [Caso de uso 7 - Threat Modeling](..%2FUse%20Case%207%2FUse%20Case%207%20-%20Threat%20Modeling.md)
 - [Caso de uso 8 - Threat Modeling](..%2FUse%20Case%208%2FUse%20Case%208%20-%20Threat%20Modeling.md)
 - [Caso de uso 9 - Threat Modeling](..%2FUse%20Case%209%2FUse%20Case%209%20-%20Threat%20Modeling.md)
+- [Use Case 10 - Threat Modeling.md](..%2FUse%20Case%2010%2FUse%20Case%2010%20-%20Threat%20Modeling.md)
+- [Use Case 14 - Threat Modeling.md](..%2FUse%20Case%2014%2FUse%20Case%2014%20-%20Threat%20Modeling.md)
 
 ### Ranking de Ameaças e Modelo de Risco Qualitativo
 
@@ -155,8 +157,12 @@ e foram desenvolvidos relatórios individuais para cada caso de uso.
 | Sobrecarga do sistema com solicitações maliciosas   | Alto           |
 | Injeção de código SQL na barra de pesquisa          | Alto           |
 | Inserção de scripts maliciosos na barra de pesquisa | Alto           |
-| Acesso a dados privados do utilizador               | Médio          |
+| Elevação de privilégios                             | Alto           |
 | Acesso a permissões de administrador                | Alto           |
+| Acesso a dados privados do utilizador               | Médio          |
+| Negar acesso de utilizadores                        | Médio          |
+| Inserção de produtos com informações falsas         | Baixo          |
 | Phishing                                            | Baixo          |
+
 <sup>Para maiores detalhes sobre cada ameaça, consultar os documentos de análise individual de cada caso de uso</sup>
 
