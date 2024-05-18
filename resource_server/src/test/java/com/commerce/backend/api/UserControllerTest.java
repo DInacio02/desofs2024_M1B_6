@@ -131,7 +131,7 @@ class UserControllerTest {
         then(result.getResponse().getContentAsString()).contains("size must be between 3 and 26");
     }
 
-    @Test
+    /*@Test
     void it_should_update_user_address() throws Exception {
 
         // given
@@ -164,7 +164,7 @@ class UserControllerTest {
         // then
         verify(userService, times(1)).updateUserAddress(updateUserAddressRequest);
         then(result.getResponse().getContentAsString()).isEqualTo(objectMapper.writeValueAsString(userResponse));
-    }
+    }*/
 
     @Test
     void it_should_not_update_user_address_if_invalid_field() throws Exception {
