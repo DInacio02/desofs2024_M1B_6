@@ -40,6 +40,18 @@ jobs:
         with:
           java-version: 1.11
 
+      # Install Node.js and dependencies for linting
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Specify the Node.js version you need
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Linter
+        run: npm run lint
+
       - name: Download Resource Server Artifact
         uses: actions/download-artifact@v3
         with:
