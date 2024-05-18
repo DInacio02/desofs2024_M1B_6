@@ -118,6 +118,8 @@ jobs:
         run: mvn -B test --file authorization_server/pom.xml
 
       - name: Run Tests
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
         run: |
           cd client
           npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
