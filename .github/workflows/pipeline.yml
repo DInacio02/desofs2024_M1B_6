@@ -81,7 +81,7 @@ jobs:
       - name: Run Tests
         run: |
           cd client
-          npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          npm run test 
 
       - name: Upload Test Results
         if: always()
