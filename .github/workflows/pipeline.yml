@@ -72,23 +72,24 @@ jobs:
         run: |
           cd client
           npm install
+          npm install -g @angular/cli@10
 
-#      - name: Run Linter
-#        run: |
-#          cd client
-#          npm run lint || true
+      - name: Run Linter
+        run: |
+          cd client
+          npm run lint || true
 
-#      - name: Run Tests
-#        run: |
-#          cd client
-#          npm run test
+      - name: Run Tests
+        run: |
+          cd client
+          npm run test 
 
-#      - name: Upload Test Results
-#        if: always()
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: test-results
-#          path: ./coverage
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: ./coverage
 
       - name: Download Resource Server Artifact
         uses: actions/download-artifact@v3
