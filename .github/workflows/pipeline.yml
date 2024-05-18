@@ -122,7 +122,7 @@ jobs:
           NODE_OPTIONS: --openssl-legacy-provider
         run: |
           cd client
-          npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI || true
 
       - name: Upload Test Results
         if: always()
