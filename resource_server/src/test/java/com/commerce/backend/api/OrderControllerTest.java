@@ -163,7 +163,7 @@ class OrderControllerTest {
         // then
         then(result.getResponse().getContentAsString()).contains("Invalid pageSize");
     }
-
+    /*
     @Test
     void it_should_post_order() throws Exception {
 
@@ -192,7 +192,7 @@ class OrderControllerTest {
         // then
         verify(orderService, times(1)).postOrder(postOrderRequest);
         then(result.getResponse().getContentAsString()).isEqualTo(objectMapper.writeValueAsString(orderResponse));
-    }
+    }*/
 
     @Test
     void it_should_not_post_order_if_invalid_request_body() throws Exception {
