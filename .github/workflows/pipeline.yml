@@ -100,14 +100,6 @@ jobs:
           name: frontend-artifact
           path: client/dist
 
-      - name: Install Chrome dependencies
-        run: sudo apt-get install -y libnss3 libgconf-2-4
-
-      - name: Set up Chrome for Karma
-        run: |
-          sudo ln -s /usr/bin/google-chrome /usr/bin/chromium-browser
-          sudo ln -s /usr/bin/google-chrome /usr/bin/chrome
-
       - name: Run Tests for Resource Server
         run: mvn -B test --file resource_server/pom.xml
       - name: Run Tests for Authorization Server
