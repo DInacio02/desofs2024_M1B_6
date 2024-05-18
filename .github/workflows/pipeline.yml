@@ -113,7 +113,6 @@ jobs:
       - name: Run Tests
         run: |
           cd client
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run test 
 
       - name: Upload Test Results
