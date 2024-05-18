@@ -141,6 +141,12 @@ jobs:
           docker build -t authorization_server authorization_server/
           docker build -t client client/
 
+      - name: Create Docker tags
+        run: |
+          docker tag resource_server $DOCKER_REPOSITORY:resource_server_latest
+          docker tag authorization_server $DOCKER_REPOSITORY:authorization_server_latest
+          docker tag client $DOCKER_REPOSITORY:client_latest
+
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
@@ -149,9 +155,6 @@ jobs:
 
       - name: Push Docker images
         run: |
-          docker tag resource_server $DOCKER_REPOSITORY/resource_server:latest
-          docker tag authorization_server $DOCKER_REPOSITORY/authorization_server:latest
-          docker tag client $DOCKER_REPOSITORY/client:latest
-          docker push $DOCKER_REPOSITORY/resource_server:latest
-          docker push $DOCKER_REPOSITORY/authorization_server:latest
-          docker push $DOCKER_REPOSITORY/client:latest
+          docker push $DOCKER_REPOSITORY:resource_server_latest
+          docker push $DOCKER_REPOSITORY:authorization_server_latest
+          docker push $DOCKER_REPOSITORY:client_latest
