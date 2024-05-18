@@ -28,3 +28,30 @@ jobs:
         with:
           name: authorization-server-artifact
           path: authorization_server/target/*.jar
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+
+      - name: Download Resource Server Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: resource-server-artifact
+          path: resource_server/target
+      - name: Download Authorization Server Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: authorization-server-artifact
+          path: authorization_server/target
+
+      - name: Run Tests for Resource Server
+        run: mvn -B test --file resource_server/pom.xml
+      - name: Run Tests for Authorization Server
+        run: mvn -B test --file authorization_server/pom.xml
