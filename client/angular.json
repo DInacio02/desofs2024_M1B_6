@@ -109,8 +109,7 @@
             ],
             "exclude": [
               "**/node_modules/**"
-            ],
-            "maxWarnings": -1
+            ]
           }
         },
         "e2e": {
