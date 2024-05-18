@@ -24,11 +24,17 @@ jobs:
         with:
           node-version: '18.20.2'
 
-      - name: Build Frontend with Angular
+      - name: Install dependencies
         run: |
           cd client
           npm install
+
+      - name: Build Frontend with Angular
+        run: |
+          cd client
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prod
+      
 
       - name: Upload Resource Server Artifact
         uses: actions/upload-artifact@v3
