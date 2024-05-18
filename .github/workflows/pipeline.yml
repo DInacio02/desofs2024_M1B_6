@@ -41,11 +41,13 @@ jobs:
         with:
           name: resource-server-artifact
           path: resource_server/target/*.jar
+
       - name: Upload Authorization Server Artifact
         uses: actions/upload-artifact@v3
         with:
           name: authorization-server-artifact
           path: authorization_server/target/*.jar
+
       - name: Upload Frontend Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -79,6 +81,30 @@ jobs:
           cd client
           npm run lint || true
 
+
+      - name: Download Resource Server Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: resource-server-artifact
+          path: resource_server/target
+
+      - name: Download Authorization Server Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: authorization-server-artifact
+          path: authorization_server/target
+
+      - name: Download Client Server Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-artifact
+          path: client/dist
+
+      - name: Run Tests for Resource Server
+        run: mvn -B test --file resource_server/pom.xml
+      - name: Run Tests for Authorization Server
+        run: mvn -B test --file authorization_server/pom.xml
+
       - name: Run Tests
         run: |
           cd client
@@ -91,21 +117,7 @@ jobs:
           name: test-results
           path: ./coverage
 
-      - name: Download Resource Server Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: resource-server-artifact
-          path: resource_server/target
-      - name: Download Authorization Server Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: authorization-server-artifact
-          path: authorization_server/target
 
-      - name: Run Tests for Resource Server
-        run: mvn -B test --file resource_server/pom.xml
-      - name: Run Tests for Authorization Server
-        run: mvn -B test --file authorization_server/pom.xml
 
   deploy:
     runs-on: ubuntu-latest
