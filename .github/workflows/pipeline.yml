@@ -100,6 +100,11 @@ jobs:
           name: frontend-artifact
           path: client/dist
 
+      - name: Set Chrome path
+        run: |
+          sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
+          export CHROME_BIN=/usr/bin/google-chrome
+
       - name: Run Tests for Resource Server
         run: mvn -B test --file resource_server/pom.xml
       - name: Run Tests for Authorization Server
@@ -108,6 +113,7 @@ jobs:
       - name: Run Tests
         run: |
           cd client
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run test 
 
       - name: Upload Test Results
