@@ -56,6 +56,7 @@ jobs:
         run: |
           cd client
           npm run lint
+          ng lint client --fix
 
       - name: Download Resource Server Artifact
         uses: actions/download-artifact@v3
