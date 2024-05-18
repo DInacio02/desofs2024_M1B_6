@@ -47,10 +47,14 @@ jobs:
           node-version: '14' # Specify the Node.js version you need
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd client
+          npm install
 
       - name: Run Linter
-        run: npm run lint
+        run: |
+          cd client
+          npm run lint
 
       - name: Download Resource Server Artifact
         uses: actions/download-artifact@v3
