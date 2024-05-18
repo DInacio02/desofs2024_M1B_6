@@ -19,6 +19,12 @@ jobs:
       - name: Build Authorization Server With Maven
         run: mvn -B package --file authorization_server/pom.xml
 
+      - name: Build Frontend with Angular
+        run: |
+          cd client
+          npm install
+          npm run build --prod
+
       - name: Upload Resource Server Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -29,6 +35,11 @@ jobs:
         with:
           name: authorization-server-artifact
           path: authorization_server/target/*.jar
+      - name: Upload Frontend Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-artifact
+          path: client/dist/*
 
   test:
     runs-on: ubuntu-latest
