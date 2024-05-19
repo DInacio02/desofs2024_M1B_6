@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ListOrdersComponent } from './list-orders.component';
+import { OrderService } from '../services/order.service'; // Adjust the path to where OrderService is located
 
 describe('ListOrdersComponent', () => {
   let component: ListOrdersComponent;
@@ -8,7 +9,9 @@ describe('ListOrdersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ListOrdersComponent]
+      declarations: [ListOrdersComponent],
+      imports: [HttpClientTestingModule], // Import HttpClientTestingModule
+      providers: [OrderService] // Provide OrderService
     })
       .compileComponents();
   }));
