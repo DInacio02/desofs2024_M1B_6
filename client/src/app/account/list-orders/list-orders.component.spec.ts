@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ListOrdersComponent } from './list-orders.component';
-import { OrderService } from '../services/order.service'; // Adjust the path to where OrderService is located
+import {OrderService} from "../../services/order.service";
 
 describe('ListOrdersComponent', () => {
   let component: ListOrdersComponent;
