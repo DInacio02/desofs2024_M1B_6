@@ -1,6 +1,6 @@
 # Pipeline
 
-Na continuação do processo de SSDLC, após as fases de análise e design, é crucial criar uma pipeline que assegure a possibilidade de construir, testar e implementar a aplicação de maneira contínua e automatizada. Através desta pipeline, podemos verificar, a cada nova implementação no processo de desenvolvimento, se a aplicação permanece íntegra, funcional, testada e pronta para ser deployada. Esta prática não só melhora a eficiência do desenvolvimento como também garante a qualidade e a estabilidade do software.
+Na continuação do processo de SSDLC, após as fases de análise e design, é crucial criar uma pipeline que assegure a possibilidade de construir, testar e implementar a aplicação de maneira contínua e automatizada. Através desta pipeline, podemos verificar, a cada nova implementação no processo de desenvolvimento, se a aplicação permanece íntegra, funcional, testada e pronta para ser implantada. Esta prática não só melhora a eficiência do desenvolvimento como também garante a qualidade e a estabilidade do software.
 
 ## Build
 
@@ -27,3 +27,8 @@ A fase de testes é essencial para garantir que as mudanças introduzidas não q
 7. **Execução dos Testes Unitários e de Integração:** Utiliza o Maven para executar os testes unitários e de integração no Resource Server e no Authorization Server, garantindo que todas as funcionalidades estão operacionais e que os diferentes módulos da aplicação interagem corretamente entre si.
 
 Esses testes abrangem uma ampla gama de cenários para assegurar que o software mantém sua integridade e funcionalidade ao longo do ciclo de desenvolvimento.
+
+
+## Deployment
+
+Por fim, mas também de grande importância um deploy automático das imagens construidas para o DockerHub de forma a garantir um controle de versões, segurança e acesso centralizado do software.
