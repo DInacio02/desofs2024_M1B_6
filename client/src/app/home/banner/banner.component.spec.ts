@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MostSellingComponent } from './most-selling/most-selling.component.ts';
+import { MostSellingComponent } from './most-selling/most-selling.component';
 
 describe('MostSellingComponent', () => {
   let component: MostSellingComponent;
