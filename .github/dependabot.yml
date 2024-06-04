@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Configuração para authorization_server (Maven)
+  - package-ecosystem: "maven"
+    directory: "/authorization_server"
+    schedule:
+      interval: "daily"
+
+  # Configuração para client (npm)
+  - package-ecosystem: "npm"
+    directory: "/client"
+    schedule:
+      interval: "daily"
+
+  # Configuração para resource_server (Maven)
+  - package-ecosystem: "maven"
+    directory: "/resource_server"
+    schedule:
+      interval: "daily"
