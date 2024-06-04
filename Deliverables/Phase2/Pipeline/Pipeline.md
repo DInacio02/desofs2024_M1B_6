@@ -1,6 +1,6 @@
 # Pipeline
 
-Na continuação do processo de SSDLC, após as fases de análise e design, é crucial criar uma pipeline que assegure a possibilidade de construir, testar e implementar a aplicação de maneira contínua e automatizada. Através desta pipeline, podemos verificar, a cada nova implementação no processo de desenvolvimento, se a aplicação permanece íntegra, funcional, testada e pronta para ser colocada em produção. Esta prática não só melhora a eficiência do desenvolvimento como também garante a qualidade e a estabilidade do software.
+Na continuação do processo de SSDLC, após as fases de análise e design, é crucial criar uma pipeline que assegure a possibilidade de construir, testar e implementar a aplicação de maneira contínua e automatizada. Através desta pipeline, podemos verificar, a cada nova implementação no processo de desenvolvimento, se a aplicação permanece íntegra, funcional, testada e pronta para ser implantada. Esta prática não só melhora a eficiência do desenvolvimento como também garante a qualidade e a estabilidade do software.
 
 ## Build
 
