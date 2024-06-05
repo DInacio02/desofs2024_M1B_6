@@ -1,10 +1,9 @@
 name: Branch Security Pipeline
 
 on:
-  push:
+  pull_request:
     branches:
-      - '**'
-      - '!master' ##testing branching commit
+      - master
 
 jobs:
   build:
