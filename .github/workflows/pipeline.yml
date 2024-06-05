@@ -124,6 +124,12 @@ jobs:
           cd client
           npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI || true
 
+      - name: Static Code Analysis with Checkstyle on Resource Server
+        run: |
+          cd resource_server
+          mvn checkstyle:check --file pom.xml
+          
+
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v2
