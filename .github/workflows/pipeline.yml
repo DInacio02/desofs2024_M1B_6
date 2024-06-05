@@ -129,6 +129,16 @@ jobs:
           cd resource_server
           mvn checkstyle:check --file pom.xml || true
 
+      - name: Security Scanning with OWASP Dependency-Check
+        run: |
+          cd resource_server
+          mvn org.owasp:dependency-check-maven:check --file pom.xml || true      
+
+      - name: Security Scanning with OWASP Dependency-Check
+        run: |
+          cd authorization_server
+          mvn org.owasp:dependency-check-maven:check --file pom.xml || true             
+
       - name: Static Code Analysis with Checkstyle on Authorization Servers
         run: |
           cd authorization_server
