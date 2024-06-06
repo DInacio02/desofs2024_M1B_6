@@ -1,9 +1,10 @@
-name: CI/CD Pipeline
+name: Branch Security Pipeline
 
 on:
-  push:
+  pull_request:
     branches:
       - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,7 +35,7 @@ jobs:
           cd client
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prod
-      
+
 
       - name: Upload Resource Server Artifact
         uses: actions/upload-artifact@v3
@@ -87,13 +88,6 @@ jobs:
       - name: Install Chrome
         run: sudo apt-get install -y chromium-browser
 
-
-      - name: Run Linter
-        run: |
-          cd client
-          npm run lint || true
-
-
       - name: Download Resource Server Artifact
         uses: actions/download-artifact@v3
         with:
@@ -124,84 +118,9 @@ jobs:
           cd client
           npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI || true
 
-      - name: Static Code Analysis with Checkstyle on Resource Server
-        run: |
-          cd resource_server
-          mvn checkstyle:check --file pom.xml || true
-
-      - name: Security Scanning with OWASP Dependency-Check
-        run: |
-          cd resource_server
-          mvn org.owasp:dependency-check-maven:check --file pom.xml || true      
-
-      - name: Security Scanning with OWASP Dependency-Check
-        run: |
-          cd authorization_server
-          mvn org.owasp:dependency-check-maven:check --file pom.xml || true             
-
-      - name: Static Code Analysis with Checkstyle on Authorization Servers
-        run: |
-          cd authorization_server
-          mvn checkstyle:check --file pom.xml || true    
-          
-
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: test-results
           path: ./coverage
-
-
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-
-    env:
-      DOCKER_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}/desofs2024_m1b_6
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Download Resource Server Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: resource-server-artifact
-          path: resource_server/target
-
-      - name: Download Authorization Server Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: authorization-server-artifact
-          path: authorization_server/target
-
-      - name: Download Frontend Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: frontend-artifact
-          path: client/dist
-
-      - name: Build Docker images
-        run: |
-          docker build -t resource_server resource_server/
-          docker build -t authorization_server authorization_server/
-          docker build -t client client/
-
-      - name: Create Docker tags
-        run: |
-          docker tag resource_server $DOCKER_REPOSITORY:resource_server_latest
-          docker tag authorization_server $DOCKER_REPOSITORY:authorization_server_latest
-          docker tag client $DOCKER_REPOSITORY:client_latest
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Push Docker images
-        run: |
-          docker push $DOCKER_REPOSITORY:resource_server_latest
-          docker push $DOCKER_REPOSITORY:authorization_server_latest
-          docker push $DOCKER_REPOSITORY:client_latest
