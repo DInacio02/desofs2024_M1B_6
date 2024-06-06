@@ -18,15 +18,14 @@ So that I can easily search for the product I want to buy
 
 - **Injeção de Código Malicioso:**
 
-1. ASVS X:
-2. ASVS Y:
+1. ASVS 5.3.3: Verificar se a saída é corretamente codificada para prevenir ataques de XSS refletidos, armazenados e baseados em DOM.
 
 - **Ataques de Sobrecarga:**
 
-1. ASVS X:
-2. ASVS Y:
+1. ASVS 8.1.4: Verificar se a aplicação pode detetar e alertar sobre números anormais de solicitações, como por IP, utilizador, total por hora ou dia, ou o que faz sentido para o aplicativo.
 
 ## Implementação da UC
 
+Esta UC já se encontra desenvolvida. Apenas a aplicação dos ASVS foram necessários.
 
 ## Implementação dos ASVS
