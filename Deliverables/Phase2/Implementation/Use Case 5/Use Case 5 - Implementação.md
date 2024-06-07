@@ -14,11 +14,11 @@ So that I can easily change it if needed
 
 ## ASVS Associados
 
-1. ASVS X:
-2. ASVS Y:
+1. ASVS 4.3.1: Verificar se as interfaces administrativas utilizam a autenticação multifactor adequada para evitar a utilização não autorizada.
 
 
 ## Implementação da UC
 
+Esta UC já se encontra desenvolvida. Apenas a aplicação dos ASVS foram necessários.
 
 ## Implementação dos ASVS
