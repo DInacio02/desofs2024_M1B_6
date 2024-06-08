@@ -16,11 +16,11 @@ So that I can use the application
 
 - **Forçar entrada por tentativa e erro:**
 
-1. ASVS X:
-2. ASVS Y:
+1. ASVS 2.2.1: Verificar se a aplicação bloqueia uma conta de utilizador após um número especificado de tentativas de autenticação malsucedidas dentro de um período de tempo especificado.
 
 
 ## Implementação da UC
 
+Esta UC já se encontra desenvolvida. Apenas a aplicação dos ASVS foram necessários.
 
 ## Implementação dos ASVS

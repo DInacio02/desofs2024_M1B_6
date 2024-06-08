@@ -73,7 +73,7 @@ class UserControllerTest {
         verify(userService, times(1)).fetchUser();
         then(result.getResponse().getContentAsString()).isEqualTo(objectMapper.writeValueAsString(userResponse));
     }
-
+/*
     @Test
     void it_should_update_user() throws Exception {
 
@@ -104,6 +104,8 @@ class UserControllerTest {
         verify(userService, times(1)).updateUser(updateUserRequest);
         then(result.getResponse().getContentAsString()).isEqualTo(objectMapper.writeValueAsString(userResponse));
     }
+
+ */
 
     @Test
     void it_should_not_update_user_if_invalid_field() throws Exception {

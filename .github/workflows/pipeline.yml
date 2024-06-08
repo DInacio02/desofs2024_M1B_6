@@ -139,11 +139,22 @@ jobs:
           cd authorization_server
           mvn org.owasp:dependency-check-maven:check --file pom.xml || true             
 
+      - name: Upload dependency-check report
+        uses: actions/upload-artifact@v2
+        with:
+          name: resource_server-dependency-check-report
+          path: /home/runner/work/desofs2024_M1B_6/desofs2024_M1B_6/resource_server/target/dependency-check-report.html
+
+      - name: Upload dependency-check report
+        uses: actions/upload-artifact@v2
+        with:
+          name: authorization_server-dependency-check-report
+          path: /home/runner/work/desofs2024_M1B_6/desofs2024_M1B_6/authorization_server/target/dependency-check-report.html
+
       - name: Static Code Analysis with Checkstyle on Authorization Servers
         run: |
           cd authorization_server
           mvn checkstyle:check --file pom.xml || true    
-          
 
       - name: Upload Test Results
         if: always()
