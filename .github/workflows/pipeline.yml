@@ -142,13 +142,13 @@ jobs:
       - name: Upload dependency-check report
         uses: actions/upload-artifact@v2
         with:
-          name: dependency-check-report
+          name: resource_server-dependency-check-report
           path: /home/runner/work/desofs2024_M1B_6/desofs2024_M1B_6/resource_server/target/dependency-check-report.html
 
       - name: Upload dependency-check report
         uses: actions/upload-artifact@v2
         with:
-          name: dependency-check-report
+          name: authorization_server-dependency-check-report
           path: /home/runner/work/desofs2024_M1B_6/desofs2024_M1B_6/authorization_server/target/dependency-check-report.html
 
       - name: Static Code Analysis with Checkstyle on Authorization Servers
