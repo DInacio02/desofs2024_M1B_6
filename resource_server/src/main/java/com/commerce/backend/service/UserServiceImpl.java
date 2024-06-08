@@ -52,20 +52,13 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(registerUserRequest.getPassword()));
         user.setEmailVerified(0);
 
-        Optional<Role> roleOpt = roleRepository.findByName(RoleEnum.USER);
+        Optional<Role> role = roleRepository.findByName(RoleEnum.USER);
 
-        Role role;
-
-        if (roleOpt.isEmpty()) {
-            role = new Role();
-            role.setName(RoleEnum.USER);
-
-            roleRepository.save(role);
-        } else {
-            role = roleOpt.get();
+        if (role.isEmpty()) {
+            throw new InvalidArgumentException("User role does not exist");
         }
 
-        user.setRole(role);
+        user.setRole(role.get());
 
         return userRepository.save(user);
     }
