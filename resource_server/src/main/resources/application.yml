@@ -45,8 +45,6 @@ spring:
     protocol: smtp
   mvc:
     throw-exception-if-no-handler-found: true
-  profiles:
-    active: @spring.profiles.active@
 
 security:
   public-pattern: /api/public/**
