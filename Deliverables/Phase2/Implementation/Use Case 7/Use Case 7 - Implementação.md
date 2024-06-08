@@ -50,3 +50,14 @@ Para isso utilizou-se novamente o OWASP Java Encoder:
 ![ecoder.png](img%2Fecoder.png)
 </br>
 </br>
+
+### ASVS 8.1.4
+
+Tal como já foi descrito no [Use Case 3 - Implementação.md](..%2FUse%20Case%203%2FUse%20Case%203%20-%20Implementa%E7%E3o.md),
+para implementar o ASVS 8.1.4 na aplicação, foi criado o componente RateLimiterInterceptor, responsável por controlar a quantidade de solicitações recebidas por IP. 
+
+Para permitir que aplicacão seja capaz de detectar e alertar sobre números anormais de solicitações, basta
+adicionar o endpoint que é chamado no momento do registo ("/account/registration"), ao ficheiro de configuração
+que define quais os endpoints que deve ser monitorados pelo interceptor:
+
+![interceptor.png](img%2Finterceptor.png)
