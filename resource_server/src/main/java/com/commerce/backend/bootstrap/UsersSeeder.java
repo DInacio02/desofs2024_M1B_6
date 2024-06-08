@@ -6,6 +6,7 @@ import com.commerce.backend.model.entity.Role;
 import com.commerce.backend.model.entity.RoleEnum;
 import com.commerce.backend.model.entity.User;
 import com.commerce.backend.model.request.user.RegisterUserRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -14,10 +15,12 @@ import java.util.Optional;
 
 @Component
 public class UsersSeeder implements CommandLineRunner {
+
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @Autowired
     public UsersSeeder(
             RoleRepository roleRepository,
             UserRepository userRepository,
