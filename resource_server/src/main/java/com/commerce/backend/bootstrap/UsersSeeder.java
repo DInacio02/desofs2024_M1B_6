@@ -8,12 +8,14 @@ import com.commerce.backend.model.entity.User;
 import com.commerce.backend.model.request.user.RegisterUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
+@Profile("Seed")
 public class UsersSeeder implements CommandLineRunner {
 
     private final RoleRepository roleRepository;
