@@ -14,14 +14,12 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
+public class UsersSeeder implements ApplicationListener<ContextRefreshedEvent> {
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
-
     private final PasswordEncoder passwordEncoder;
 
-
-    public AdminSeeder(
+    public UsersSeeder(
             RoleRepository roleRepository,
             UserRepository  userRepository,
             PasswordEncoder passwordEncoder
@@ -33,18 +31,49 @@ public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        this.createSuperAdministrator();
+        this.createAdministrator();
+        this.createManager();
+        this.createUser();
     }
 
-    private void createSuperAdministrator() {
-        RegisterUserRequest userDto = new RegisterUserRequest();
-        userDto.setEmail("admin@email.com");
-        userDto.setPassword("123456");
-
+    private void createAdministrator() {
         Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);
+
+        if (optionalRole.isEmpty()) {
+            return;
+        }
+
+        createUserWithRole("admin@email.com", "123456", optionalRole.get());
+    }
+
+    private void createManager() {
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.MANAGER);
+
+        if (optionalRole.isEmpty()) {
+            return;
+        }
+
+        createUserWithRole("manager@email.com", "123456", optionalRole.get());
+    }
+
+    private void createUser() {
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.USER);
+
+        if (optionalRole.isEmpty()) {
+            return;
+        }
+
+        createUserWithRole("user1@email.com", "123456", optionalRole.get());
+    }
+
+    private void createUserWithRole(String email, String password, Role role) {
+        RegisterUserRequest userDto = new RegisterUserRequest();
+        userDto.setEmail(email);
+        userDto.setPassword(password);
+
         Optional<User> optionalUser = userRepository.findByEmail(userDto.getEmail());
 
-        if (optionalRole.isEmpty() || optionalUser.isPresent()) {
+        if (optionalUser.isPresent()) {
             return;
         }
 
@@ -52,7 +81,8 @@ public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setRole(optionalRole.get());
+        user.setEmailVerified(1);
+        user.setRole(role);
 
         userRepository.save(user);
     }
