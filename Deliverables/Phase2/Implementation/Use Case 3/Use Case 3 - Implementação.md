@@ -18,11 +18,11 @@ So that I can easily search for the product I want to buy
 
 - **Injeção de Código Malicioso:**
 
-1. ASVS 5.3.3: Verificar se a saída é corretamente codificada para prevenir ataques de XSS refletidos, armazenados e baseados em DOM.
+ASVS 5.3.3: Verificar se a saída é corretamente codificada para prevenir ataques de XSS refletidos, armazenados e baseados em DOM.
 
 - **Ataques de Sobrecarga:**
 
-1. ASVS 8.1.4: Verificar se a aplicação pode detetar e alertar sobre números anormais de solicitações, como por IP, utilizador, total por hora ou dia, ou o que faz sentido para o aplicativo.
+ASVS 8.1.4: Verificar se a aplicação pode detetar e alertar sobre números anormais de solicitações, como por IP, utilizador, total por hora ou dia, ou o que faz sentido para o aplicativo.
 
 ## Implementação da UC
 
@@ -61,3 +61,30 @@ O código Angular já está estruturado para prevenir XSS, pois o Angular automa
 
 Ex:
 ![exDeInterpolacao.png](img%2FexDeInterpolacao.png)
+</br>
+</br>
+</br>
+
+### ASVS 8.1.4
+
+Para implementar o ASVS 8.1.4 na aplicação, foi criado o componente RateLimiterInterceptor, responsável por controlar a quantidade de solicitações recebidas por IP. 
+
+![interceptor.png](img%2Finterceptor.png)
+
+Na prática, este componente utiliza um cache em memória para armazenar contadores de solicitações por endereço IP e aplicar limites de taxa, prevenindo ataques de sobrecarga (DoS).
+
+Junto com a implementação deste componente foram adicionadas duas classes de configuração que 
+complementam o trabalho do RateLimiterInterceptor.
+
+![configs.png](img%2Fconfigs.png)
+
+1. WebConfiguration: Esta configuração configura o RateLimiterInterceptor e garante que o interceptor seja aplicado às rotas específicas onde a limitação de taxa é necessária.
+(neste caso foi adicionado ao endpoint "/products/search")
+
+![webConfigEndpoints.png](img%2FwebConfigEndpoints.png)
+
+2. CacheConfig: Esta configuração define as propriedades do cache utilizado pelo RateLimiterInterceptor. A biblioteca Caffeine é utilizada para criar um cache eficiente, com um tempo de expiração configurado para 1 hora e um tamanho máximo de 1000 entradas.
+
+![cache.png](img%2Fcache.png)
+
+Com estas implementações, a aplicação é capaz de detectar e alertar sobre números anormais de solicitações, atendendo ao requisito do ASVS 8.1.4 e protegendo a aplicação contra ataques de sobrecarga (DoS).

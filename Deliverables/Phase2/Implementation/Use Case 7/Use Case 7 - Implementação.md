@@ -24,15 +24,15 @@ podendo aceder a informação sensível.
 
 - **Injeção de Código Malicioso:**
 
-1. ASVS 5.3.3: Verificar que a aplicação, de preferência de forma automática ou, em último caso, manual, efetua a escape adequada de saída para proteger contra XSS refletido, armazenado e baseado em DOM.
+ASVS 5.3.3: Verificar que a aplicação, de preferência de forma automática ou, em último caso, manual, efetua a escape adequada de saída para proteger contra XSS refletido, armazenado e baseado em DOM.
 
 - **Ataques de Sobrecarga:**
 
-1. ASVS 8.1.4: Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application.
+ASVS 8.1.4: Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application.
 
 - **Interceção de pedidos:**
 
-1. ASVS 5.3.8: Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
+ASVS 5.3.8: Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
 
 ## Implementação da UC
 
