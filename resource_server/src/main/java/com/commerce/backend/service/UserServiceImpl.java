@@ -10,6 +10,7 @@ import com.commerce.backend.model.request.user.RegisterUserRequest;
 import com.commerce.backend.model.request.user.UpdateUserAddressRequest;
 import com.commerce.backend.model.request.user.UpdateUserRequest;
 import com.commerce.backend.model.response.user.UserResponse;
+import org.owasp.encoder.Encode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,9 +42,12 @@ public class UserServiceImpl implements UserService {
             throw new InvalidArgumentException("An account already exists with this email");
         }
 
+        String sanitizedEmail = Encode.forHtml(registerUserRequest.getEmail());
+        String sanitizedPassword = Encode.forHtml(registerUserRequest.getPassword());
+
         User user = new User();
-        user.setEmail(registerUserRequest.getEmail());
-        user.setPassword(passwordEncoder.encode(registerUserRequest.getPassword()));
+        user.setEmail(sanitizedEmail);
+        user.setPassword(passwordEncoder.encode(sanitizedPassword));
         user.setEmailVerified(0);
 
         return userRepository.save(user);

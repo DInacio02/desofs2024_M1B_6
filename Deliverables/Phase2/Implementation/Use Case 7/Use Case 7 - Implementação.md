@@ -39,3 +39,14 @@ ASVS 5.3.8: Verify that the application protects against OS command injection an
 Esta UC já se encontra desenvolvida. Apenas a aplicação dos ASVS foram necessários.
 
 ## Implementação dos ASVS
+
+### ASVS 5.3.3
+
+Tal como na implementação feita na UC3, para implementar a ASVS 5.3.3 e proteger contra injeção de código malicioso durante o registro de utilizadores, 
+é preciso sanitizar os dados que o utilizador envia no processo de resgisto.
+
+Para isso utilizou-se novamente o OWASP Java Encoder:
+
+![ecoder.png](img%2Fecoder.png)
+</br>
+</br>
