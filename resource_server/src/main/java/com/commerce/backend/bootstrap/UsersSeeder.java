@@ -6,15 +6,14 @@ import com.commerce.backend.model.entity.Role;
 import com.commerce.backend.model.entity.RoleEnum;
 import com.commerce.backend.model.entity.User;
 import com.commerce.backend.model.request.user.RegisterUserRequest;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
-public class UsersSeeder implements ApplicationListener<ContextRefreshedEvent> {
+public class UsersSeeder implements CommandLineRunner {
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -30,7 +29,7 @@ public class UsersSeeder implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void run(String... args) {
         this.createAdministrator();
         this.createManager();
         this.createUser();
