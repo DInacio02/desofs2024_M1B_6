@@ -183,4 +183,13 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>seed</id>
+            <properties>
+                <spring.profiles.active>seed</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>

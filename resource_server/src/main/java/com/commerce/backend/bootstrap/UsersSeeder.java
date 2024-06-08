@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-@Profile("Seed")
+@Profile("seed")
 public class UsersSeeder implements CommandLineRunner {
 
     private final RoleRepository roleRepository;

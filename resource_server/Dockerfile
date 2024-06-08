@@ -5,8 +5,7 @@ WORKDIR /build
 COPY pom.xml .
 COPY src src
 
-RUN mvn package -DskipTests
-
+RUN mvn package -DskipTests -Pseed
 
 FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
