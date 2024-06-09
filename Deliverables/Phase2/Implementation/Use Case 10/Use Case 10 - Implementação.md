@@ -37,11 +37,11 @@ Este endpoint utiliza um *CreateProductRequest* (produto construído no front-en
 
 ## Implementação dos ASVS
 
-Tal como já foi descrito no [Use Case 3 - Implementação.md](../Use_Case_3/Use_Case_3-Implementação.md),
+Tal como já foi descrito no [Use Case 3 - Implementação.md](../Use_Case_3/Use_Case_3_-_Implementação.md),
 para implementar o ASVS 8.1.4 na aplicação, foi criado o componente *RateLimiterInterceptor*, responsável por controlar a quantidade de solicitações recebidas por IP.
 
 Para permitir que aplicacão seja capaz de detectar e alertar sobre números anormais de solicitações, basta
 adicionar o endpoint que é chamado no momento da criação de um novo produto `/product`, ao ficheiro de configuração
 que define quais os endpoints que devem ser monitorados pelo interceptor:
 
-![Interceptor.png](img/Interceptor.png)
+![Interceptor.png](img/interceptor.png)
