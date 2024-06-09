@@ -17,6 +17,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(rateLimitInterceptor)
                 .addPathPatterns("/api/public/product/search",
                                 "/api/public/account/registration",
-                                "/api/public/account/password/forgot");
+                                "/api/public/account/password/forgot",
+                                "/api/public/product");
     }
 }
