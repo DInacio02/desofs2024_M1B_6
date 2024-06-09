@@ -4,14 +4,6 @@ logging:
       hibernate:
         SQL: INFO
 server:
-  ssl:
-    key-store-type: PKCS12
-    key-store: /app/keyist-auth.p12
-    key-store-password: password1
-    key-alias: keyist_auth
-    enabled: true
-    trust-store: /app/keyist-auth.p12
-    trust-store-password: password1
   error:
     whitelabel:
       enabled: true
