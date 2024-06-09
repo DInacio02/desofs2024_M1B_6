@@ -34,6 +34,8 @@ autenticação de dois fatores através do envio de um email para o utilizador.
 O objetivo seria a aplicação emviar um código por email, no momento em que o utilziador clicasse no butão "Update", para ele introduzir na aplicação,
 e validar a sua identidade.
 
+![popup.png](img%2Fpopup.png)
+
 Esta validação, que constitui uma validação multifator, iria implementar com sucesso o ASVS 4.3.1. 
 No entanto, apesar dos esforços, a equipa não conseguiu terminar esta implementação.
 
