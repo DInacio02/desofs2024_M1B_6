@@ -42,14 +42,22 @@ Esta UC já se encontra desenvolvida. Apenas a aplicação dos ASVS foram necess
 
 ### ASVS 5.3.3
 
-Tal como na implementação feita na UC3, para implementar a ASVS 5.3.3 e proteger contra injeção de código malicioso durante o registro de utilizadores, 
-é preciso sanitizar os dados que o utilizador envia no processo de resgisto.
+No momento em que o utilizador introduz um e-mails é feito primeiro uma validação desse texto introduzido 
+utilizando uma gramática que valida se o texto tem o formato de um e-mail:
 
-Para isso utilizou-se novamente o OWASP Java Encoder:
+![passwordGrammar.png](img%2FpasswordGrammar.png)
+
+Caso o texto introduzido não tenha o formato de e-mails, não lhe é permitida a sumbissão, e uma mensagem de erro é mostrada.
+
+![error.png](img%2Ferror.png)
+
+Quanto à Pasword, está não é validada no front-end, mas sim no back-end, através da utilização
+do Encoder, da biblioteca OWASP Java Encoder, que faz a sanitização tanto do email como a password.
 
 ![ecoder.png](img%2Fecoder.png)
-</br>
-</br>
+
+Além disso, todos os e-mails e senhas são apenas armazenados na base de dados e nunca são exibidos na UI, o que ajuda a proteger a aplicação.
+No entanto, a proteção contra XSS refletido, armazenado e baseado em DOM é garantida principalmente pelas medidas de sanitização e validação implementadas tanto no front-end quanto no back-end, estando assim de acordo com o ASVS 5.3.3.
 
 ### ASVS 8.1.4
 
