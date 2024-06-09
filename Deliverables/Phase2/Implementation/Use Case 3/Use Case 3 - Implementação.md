@@ -24,6 +24,9 @@ ASVS 5.3.3: Verificar se a saída é corretamente codificada para prevenir ataqu
 
 ASVS 8.1.4: Verificar se a aplicação pode detetar e alertar sobre números anormais de solicitações, como por IP, utilizador, total por hora ou dia, ou o que faz sentido para o aplicativo.
 
+**Nota:** Para cada caso de abuso foi analisado qual o ASVS que melhor se relaciona com o caso de abuso, tendo em conta que com a implementação deste, outros ASVS são também abordados.
+Este estudo foi feito no Excel a entregar.
+
 ## Implementação da UC
 
 Esta UC já se encontra desenvolvida. Apenas a aplicação dos ASVS foram necessários.
