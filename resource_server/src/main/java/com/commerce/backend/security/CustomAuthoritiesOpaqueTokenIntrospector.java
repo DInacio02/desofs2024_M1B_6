@@ -42,12 +42,21 @@ public class CustomAuthoritiesOpaqueTokenIntrospector implements OpaqueTokenIntr
     public OAuth2AuthenticatedPrincipal introspect(String token) {
         OAuth2AuthenticatedPrincipal principal = this.delegate.introspect(token);
         return new DefaultOAuth2AuthenticatedPrincipal(
-                principal.getAttribute(authUsername), principal.getAttributes(), extractAuthorities(principal));
+                principal.getAttribute(authUsername), principal.getAttributes(), extractAuthorities(principal)
+        );
     }
 
     private Collection<GrantedAuthority> extractAuthorities(OAuth2AuthenticatedPrincipal principal) {
         List<String> scopes = principal.getAttribute(OAuth2IntrospectionClaimNames.SCOPE);
-        return Objects.requireNonNull(scopes).stream()
+
+        List<String> authorities = principal.getAttribute("authorities");
+
+        Objects.requireNonNull(scopes);
+        Objects.requireNonNull(authorities);
+
+        authorities.addAll(scopes);
+
+        return authorities.stream()
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }

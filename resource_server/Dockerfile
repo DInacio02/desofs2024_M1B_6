@@ -15,4 +15,4 @@ COPY keyist.p12 .
 COPY --from=build /build/target/*.jar resource_server.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "resource_server.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=seed", "resource_server.jar"]

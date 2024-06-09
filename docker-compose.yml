@@ -31,6 +31,7 @@ services:
 
   resource_server:
     image: 'keyist-resource-server:latest'
+    restart: always
     build:
       context: ./resource_server
     container_name: resource_server
