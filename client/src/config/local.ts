@@ -2,26 +2,26 @@ import { Configuration } from './model';
 
 
 export const config: Configuration = {
-  apiUrl: 'http://localhost:8080',
-  authUrl: 'http://localhost:8081',
+  apiUrl: 'https://localhost:8080',
+  authUrl: 'https://localhost:8081',
   clientId: 'test',
   clientSecret: 'test',
   carausel: [
     {
       title: 'Title',
       text: 'Text',
-      imageUrl: ''
+      imageUrl: '',
     },
     {
       title: 'Title',
       text: 'Text',
-      imageUrl: ''
+      imageUrl: '',
     },
     {
       title: 'Title',
       text: 'Text',
-      imageUrl: ''
-    }
+      imageUrl: '',
+    },
   ],
-  bannerUrl: ''
+  bannerUrl: '',
 };

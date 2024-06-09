@@ -11,6 +11,8 @@ RUN mvn package -DskipTests
 FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
 
+COPY keyist-auth.p12 .
+
 COPY --from=build /build/target/*.jar authorization_server.jar
 
 EXPOSE 8081

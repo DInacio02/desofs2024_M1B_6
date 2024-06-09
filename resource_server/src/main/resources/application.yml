@@ -4,6 +4,14 @@ logging:
       hibernate:
         SQL: INFO
 server:
+  ssl:
+    key-store-type: PKCS12
+    key-store: /app/keyist.p12
+    key-store-password: password1
+    key-alias: keyist
+    enabled: true
+    trust-store: /app/keyist.p12
+    trust-store-password: password1
   error:
     whitelabel:
       enabled: true
@@ -50,7 +58,7 @@ security:
   public-pattern: /api/public/**
   auth:
     username: user_name
-    url: http://localhost:8081/oauth/check_token
+    url: https://localhost:8081/oauth/check_token
     client_id: client_id
     client_password: client_password
     connection_timeout: 60
