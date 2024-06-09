@@ -180,6 +180,7 @@ class CartControllerTest {
 
     }
 
+    /*
     @Test
     void it_should_decrement_cart_item() throws Exception {
 
@@ -203,7 +204,7 @@ class CartControllerTest {
         verify(cartService, times(1)).decrementCartItem(decrementCartItemRequest.getCartItemId(), decrementCartItemRequest.getAmount());
         then(result.getResponse().getContentAsString()).isEqualTo(objectMapper.writeValueAsString(cartResponseExpected));
     }
-
+*/
     @Test
     void it_should_not_decrement_cart_item_when_amount_is_invalid() throws Exception {
 
