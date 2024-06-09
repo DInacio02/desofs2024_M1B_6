@@ -1,6 +1,7 @@
 package com.commerce.backend.service;
 
 import com.commerce.backend.model.entity.ProductVariant;
+import com.commerce.backend.model.request.product.CreateProductRequest;
 import com.commerce.backend.model.response.product.ProductDetailsResponse;
 import com.commerce.backend.model.response.product.ProductResponse;
 import com.commerce.backend.model.response.product.ProductVariantResponse;
@@ -25,4 +26,6 @@ public interface ProductService {
     List<ProductResponse> getInterested();
 
     List<ProductResponse> searchProductDisplay(String keyword, Integer page, Integer size);
+
+    ProductResponse createProduct(CreateProductRequest productRequest);
 }

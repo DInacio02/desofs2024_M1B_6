@@ -98,7 +98,8 @@ public class ProductController extends PublicApiController {
     }
 
     @PostMapping(value = "/product")
-    public ResponseEntity<ProductResponse> createNewProduct(@RequestBody CreateProductRequest product) {
-        return new ResponseEntity<>(null, HttpStatus.OK);
+    public ResponseEntity<ProductResponse> createNewProduct(@RequestBody CreateProductRequest productRequest) {
+        ProductResponse product = productService.createProduct(productRequest);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }
