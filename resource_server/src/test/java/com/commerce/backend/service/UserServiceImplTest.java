@@ -104,7 +104,7 @@ class UserServiceImplTest {
 
 
     @Test
-    void it_should_register_a_user() {
+    void it_should_register_a_user() throws Exception {
 
         // given
         String email = faker.lorem().word();
