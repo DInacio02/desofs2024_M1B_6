@@ -10,6 +10,7 @@ import com.commerce.backend.model.request.user.RegisterUserRequest;
 import com.commerce.backend.model.request.user.UpdateUserAddressRequest;
 import com.commerce.backend.model.request.user.UpdateUserRequest;
 import com.commerce.backend.model.response.user.UserResponse;
+import org.owasp.encoder.Encode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -36,14 +37,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User register(RegisterUserRequest registerUserRequest) {
+    public User register(RegisterUserRequest registerUserRequest) throws Exception {
         if (userExists(registerUserRequest.getEmail())) {
             throw new InvalidArgumentException("An account already exists with this email");
         }
 
+        String userEmail = registerUserRequest.getEmail();
+        String userPassword = registerUserRequest.getPassword();
+
+        String sanitizedEmail = Encode.forHtml(userEmail);
+        String sanitizedPassword = Encode.forHtml(userPassword);
+
+        if(!sanitizedPassword.equals(userPassword)){
+            throw new Exception("Invalid Password: "+userPassword);
+        }
+
+        if(!sanitizedEmail.equals(userEmail)){
+            throw new Exception("Invalid Email: "+userEmail);
+        }
+
         User user = new User();
-        user.setEmail(registerUserRequest.getEmail());
-        user.setPassword(passwordEncoder.encode(registerUserRequest.getPassword()));
+        user.setEmail(sanitizedEmail);
+        user.setPassword(passwordEncoder.encode(sanitizedPassword));
         user.setEmailVerified(0);
 
         return userRepository.save(user);

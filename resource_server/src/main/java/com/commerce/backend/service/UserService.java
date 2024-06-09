@@ -9,7 +9,7 @@ import com.commerce.backend.model.request.user.UpdateUserRequest;
 import com.commerce.backend.model.response.user.UserResponse;
 
 public interface UserService {
-    User register(RegisterUserRequest registerUserRequest);
+    User register(RegisterUserRequest registerUserRequest) throws Exception;
 
     UserResponse fetchUser();
 
