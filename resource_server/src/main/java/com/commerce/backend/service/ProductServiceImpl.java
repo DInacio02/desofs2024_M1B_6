@@ -9,6 +9,7 @@ import com.commerce.backend.error.exception.InvalidArgumentException;
 import com.commerce.backend.error.exception.ResourceNotFoundException;
 import com.commerce.backend.model.entity.Product;
 import com.commerce.backend.model.entity.ProductVariant;
+import com.commerce.backend.model.request.product.CreateProductRequest;
 import com.commerce.backend.model.response.product.ProductDetailsResponse;
 import com.commerce.backend.model.response.product.ProductResponse;
 import com.commerce.backend.model.response.product.ProductVariantResponse;
@@ -169,6 +170,11 @@ public class ProductServiceImpl implements ProductService {
                 .stream()
                 .map(productResponseConverter)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ProductResponse createProduct(CreateProductRequest productRequest) {
+        throw new UnsupportedOperationException("not implemented yet");
     }
 
 
