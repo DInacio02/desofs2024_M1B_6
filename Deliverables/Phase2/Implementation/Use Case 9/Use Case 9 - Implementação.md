@@ -34,6 +34,9 @@ ASVS 5.3.3: Verificar que a aplicação, de preferência de forma automática ou
 
 ASVS 9.1.1: Verificar se todas as credenciais, tokens de autenticação e informações sensíveis são transportadas apenas através de um canal criptografado (TLS).
 
+**Nota:** Para cada caso de abuso foi analisado qual o ASVS que melhor se relaciona com o caso de abuso, tendo em conta que com a implementação deste, outros ASVS são também abordados.
+Este estudo foi feito no Excel a entregar.
+
 
 ## Implementação da UC
 
