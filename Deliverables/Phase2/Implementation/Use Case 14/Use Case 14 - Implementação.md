@@ -21,30 +21,7 @@ So that I can control access to sensitive information and functionalities within
 - **Spoofing de Credenciais de Utilizadores:** Um administrador pode utilizar credenciais de outros utilizadores para aceder fazer login em nome deles, roubando-lhes a sua conta.
 
 
-## ASVS Associados
+## Conclusões
 
-- **Exposição de Informações Sensíveis:**
+Após discussão com a equipa e confirmação com a professora, os casos de abuso identificados neste caso de uso só são vulnerabilidades se um atacante conseguir autenticar-se como administrador, ou seja, neste caso só é possível tentar mitigar a tentativa de log in (estudo realizado em outro Use Case), e não os privilégios do administrador.
 
-1. ASVS X:
-2. ASVS Y:
-
-- **Elevação de Privilégios:**
-
-1. ASVS X:
-2. ASVS Y:
-
-- **Negar Acesso de Utilizadores:**
-
-1. ASVS X:
-2. ASVS Y:
-
-- **Spoofing de Credenciais de Utilizadores:**
-
-1. ASVS X:
-2. ASVS Y:
-
-
-## Implementação da UC
-
-
-## Implementação dos ASVS
