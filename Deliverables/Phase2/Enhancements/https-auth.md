@@ -1,6 +1,6 @@
 ### Autenticação através de HTTPS
 
-Foi implementada autenticação através de TLS/SSL no resource server de forma a certificar os clientes que efetuam pedidos ao servidor, garantindo um funcionamento mais seguro do servidor e também para os clientes.
+Foi implementada autenticação através de TLS/SSL no resource server de forma a certificar os clientes que efetuam pedidos ao servidor, garantindo um funcionamento mais seguro do servidor e também para os clientes. Conseguindo assim seguir diversos ASVS de segurança.
 
 Podemos verificar aqui a documentação da API através do endereço '[https://localhost:8080/swagger-ui.html](https://localhost:8080/swagger-ui.html)'
 
