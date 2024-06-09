@@ -25,34 +25,19 @@ public class RateLimitInterceptor implements HandlerInterceptor {
         String ip = request.getRemoteAddr();
         Queue<Long> requests = requestMap.computeIfAbsent(ip, k -> new LinkedList<>());
 
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-        System.out.println(ip);
-
-
-        // Remova as solicitações mais antigas do mapa
+        // Remove as solicitações mais antigas do mapa
         long currentTime = System.currentTimeMillis();
         while (!requests.isEmpty() && currentTime - requests.peek() > TIME_INTERVAL) {
             requests.poll();
         }
 
-        // Verifique se o limite de solicitações foi excedido
+        // Verifiqua se o limite de solicitações foi excedido
         if (requests.size() >= MAX_REQUESTS) {
             response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
             return false; // Bloqueia a execução do endpoint
         }
 
-        // Registre a nova solicitação
+        // Regista a nova solicitação
         requests.offer(currentTime);
         return true; // Permite a execução do endpoint
     }
