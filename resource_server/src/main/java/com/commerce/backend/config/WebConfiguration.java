@@ -20,5 +20,6 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(rateLimiterInterceptor).addPathPatterns("/product/search");
         registry.addInterceptor(rateLimiterInterceptor).addPathPatterns("/account/registration");
+        registry.addInterceptor(rateLimiterInterceptor).addPathPatterns("/account/password/forgot");
     }
 }
