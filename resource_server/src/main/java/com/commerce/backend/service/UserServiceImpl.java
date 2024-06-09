@@ -37,13 +37,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User register(RegisterUserRequest registerUserRequest) {
+    public User register(RegisterUserRequest registerUserRequest) throws Exception {
         if (userExists(registerUserRequest.getEmail())) {
             throw new InvalidArgumentException("An account already exists with this email");
         }
 
-        String sanitizedEmail = Encode.forHtml(registerUserRequest.getEmail());
-        String sanitizedPassword = Encode.forHtml(registerUserRequest.getPassword());
+        String userEmail = registerUserRequest.getEmail();
+        String userPassword = registerUserRequest.getPassword();
+
+        String sanitizedEmail = Encode.forHtml(userEmail);
+        String sanitizedPassword = Encode.forHtml(userPassword);
+
+        if(!sanitizedPassword.equals(userPassword)){
+            throw new Exception("Invalid Password: "+userPassword);
+        }
+
+        if(!sanitizedEmail.equals(userEmail)){
+            throw new Exception("Invalid Email: "+userEmail);
+        }
 
         User user = new User();
         user.setEmail(sanitizedEmail);
