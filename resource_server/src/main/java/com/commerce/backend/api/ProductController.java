@@ -1,17 +1,17 @@
 package com.commerce.backend.api;
 
 import com.commerce.backend.error.exception.InvalidArgumentException;
+import com.commerce.backend.model.request.product.CreateProductRequest;
 import com.commerce.backend.model.response.product.ProductDetailsResponse;
 import com.commerce.backend.model.response.product.ProductResponse;
 import com.commerce.backend.model.response.product.ProductVariantResponse;
 import com.commerce.backend.service.ProductService;
+import org.owasp.encoder.Encode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 import java.util.Objects;
@@ -95,7 +95,15 @@ public class ProductController extends PublicApiController {
     public ResponseEntity<List<ProductResponse>> searchProduct(@RequestParam("page") Integer page,
                                                                @RequestParam("size") Integer size,
                                                                @RequestParam("keyword") String keyword) {
-        List<ProductResponse> products = productService.searchProductDisplay(keyword, page, size);
+
+        String sanitizedKeyword = Encode.forHtmlContent(keyword);
+        List<ProductResponse> products = productService.searchProductDisplay(sanitizedKeyword, page, size);
         return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/product")
+    public ResponseEntity<ProductResponse> createNewProduct(@RequestBody CreateProductRequest productRequest) {
+        ProductResponse product = productService.createProduct(productRequest);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }
