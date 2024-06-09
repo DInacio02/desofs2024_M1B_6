@@ -2,7 +2,7 @@ import { Configuration } from './model';
 
 
 export const config: Configuration = {
-  apiUrl: 'http://localhost:8080',
+  apiUrl: 'https://localhost:8080',
   authUrl: 'http://localhost:8081',
   clientId: 'test',
   clientSecret: 'test',
@@ -10,18 +10,18 @@ export const config: Configuration = {
     {
       title: 'Title',
       text: 'Text',
-      imageUrl: ''
+      imageUrl: '',
     },
     {
       title: 'Title',
       text: 'Text',
-      imageUrl: ''
+      imageUrl: '',
     },
     {
       title: 'Title',
       text: 'Text',
-      imageUrl: ''
-    }
+      imageUrl: '',
+    },
   ],
-  bannerUrl: ''
+  bannerUrl: '',
 };
