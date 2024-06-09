@@ -2,7 +2,7 @@
 
 Foi implementada autenticação através de TLS/SSL no resource server de forma a certificar os clientes que efetuam pedidos ao servidor, garantindo um funcionamento mais seguro do servidor e também para os clientes.
 
-Podemos verificar aqui a documentação da API através do endereço '[https://localhost:8080/v2/api-docs](https://localhost:8080/v2/api-docs)'
+Podemos verificar aqui a documentação da API através do endereço '[https://localhost:8080/swagger-ui.html](https://localhost:8080/swagger-ui.html)'
 
 ![Https](../docs/ApiDocsOverHTTPS.png)
 
