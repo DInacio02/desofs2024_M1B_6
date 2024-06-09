@@ -24,15 +24,15 @@ possa ser confundido com o de recuperação de palavra-passe para um ataque de p
 
 - **Ataques de Sobrecarga:**
 
-1. ASVS 8.1.4: Verificar se a aplicação pode detetar e alertar sobre um número anormal de pedidos, como por IP, utilizador, total por hora ou dia, ou qualquer que seja sensato para a aplicação.
+ASVS 8.1.4: Verificar se a aplicação pode detetar e alertar sobre um número anormal de pedidos, como por IP, utilizador, total por hora ou dia, ou qualquer que seja sensato para a aplicação.
 
 - **Injeção de Código Malicioso:**
 
-1. ASVS 5.3.3: Verificar que a aplicação, de preferência de forma automática ou, em último caso, manual, efetua a escape adequada de saída para proteger contra XSS refletido, armazenado e baseado em DOM.
+ASVS 5.3.3: Verificar que a aplicação, de preferência de forma automática ou, em último caso, manual, efetua a escape adequada de saída para proteger contra XSS refletido, armazenado e baseado em DOM.
 
 - **Interceção de pedidos:**
 
-1. ASVS 9.1.1: Verificar se todas as credenciais, tokens de autenticação e informações sensíveis são transportadas apenas através de um canal criptografado (TLS).
+ASVS 9.1.1: Verificar se todas as credenciais, tokens de autenticação e informações sensíveis são transportadas apenas através de um canal criptografado (TLS).
 
 
 ## Implementação da UC

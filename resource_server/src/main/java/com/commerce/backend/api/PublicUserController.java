@@ -27,7 +27,7 @@ public class PublicUserController extends PublicApiController {
     }
 
     @PostMapping(value = "/account/registration")
-    public ResponseEntity<HttpStatus> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
+    public ResponseEntity<HttpStatus> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) throws Exception {
         User user = userService.register(registerUserRequest);
         tokenService.createEmailConfirmToken(user);
         return new ResponseEntity<>(HttpStatus.OK);

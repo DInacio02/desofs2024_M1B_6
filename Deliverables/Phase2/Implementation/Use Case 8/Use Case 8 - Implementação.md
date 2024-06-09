@@ -16,7 +16,7 @@ So that I can use the application
 
 - **Forçar entrada por tentativa e erro:**
 
-1. ASVS 2.2.1: Verificar se a aplicação bloqueia uma conta de utilizador após um número especificado de tentativas de autenticação malsucedidas dentro de um período de tempo especificado.
+ASVS 2.2.1: Verificar se a aplicação bloqueia uma conta de utilizador após um número especificado de tentativas de autenticação malsucedidas dentro de um período de tempo especificado.
 
 
 ## Implementação da UC
