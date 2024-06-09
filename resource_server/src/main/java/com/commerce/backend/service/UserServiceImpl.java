@@ -1,9 +1,12 @@
 package com.commerce.backend.service;
 
 import com.commerce.backend.converter.user.UserResponseConverter;
+import com.commerce.backend.dao.RoleRepository;
 import com.commerce.backend.dao.UserRepository;
 import com.commerce.backend.error.exception.InvalidArgumentException;
 import com.commerce.backend.error.exception.ResourceNotFoundException;
+import com.commerce.backend.model.entity.Role;
+import com.commerce.backend.model.entity.RoleEnum;
 import com.commerce.backend.model.entity.User;
 import com.commerce.backend.model.request.user.PasswordResetRequest;
 import com.commerce.backend.model.request.user.RegisterUserRequest;
@@ -23,14 +26,17 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserResponseConverter userResponseConverter;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository,
+                           RoleRepository roleRepository,
                            PasswordEncoder passwordEncoder,
                            UserResponseConverter userResponseConverter) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userResponseConverter = userResponseConverter;
     }
@@ -45,6 +51,14 @@ public class UserServiceImpl implements UserService {
         user.setEmail(registerUserRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerUserRequest.getPassword()));
         user.setEmailVerified(0);
+
+        Optional<Role> role = roleRepository.findByName(RoleEnum.USER);
+
+        if (role.isEmpty()) {
+            throw new InvalidArgumentException("User role does not exist");
+        }
+
+        user.setRole(role.get());
 
         return userRepository.save(user);
     }

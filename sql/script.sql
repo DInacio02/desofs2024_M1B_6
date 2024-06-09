@@ -1,5 +1,18 @@
 use keyist;
 
+drop table if exists user_role;
+
+create table user_role
+(
+    id int auto_increment
+        primary key,
+    name ENUM('USER', 'MANAGER', 'ADMIN') not null,
+    date_created timestamp  default CURRENT_TIMESTAMP not null,
+    last_updated timestamp  default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
+    constraint user_role_name_uindex
+        unique (name)
+);
+
 drop table if exists color;
 
 create table color
@@ -175,6 +188,9 @@ create table user
     phone             varchar(20)                          null,
     country           varchar(20)                          null,
     address           varchar(100)                         null,
+    role_id           int                                  not null,
+    constraint user_ibfk_1
+        foreign key (role_id) references user_role (id),
     constraint email
         unique (email)
 );
@@ -300,6 +316,10 @@ create table verification_token
     constraint verification_token_ibfk_1
         foreign key (user_id) references user (id)
 );
+
+INSERT INTO keyist.user_role (id, name) VALUES (1, 'USER');
+INSERT INTO keyist.user_role (id, name) VALUES (2, 'MANAGER');
+INSERT INTO keyist.user_role (id, name) VALUES (3, 'ADMIN');
 
 INSERT INTO keyist.oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES ('test', 'resource-server-rest-api', '$2a$04$v8DNBoc36pw4c7b7Xyq/aeSpGneF9WciZUI9FibVz0neksUcPBXVS', 'read,write', 'password,authorization_code,refresh_token,implicit', null, 'USER', 10800, 2592000, null, null);
 INSERT INTO keyist.product_category (id, name) VALUES (1, 'Keychain');
