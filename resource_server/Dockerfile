@@ -10,7 +10,7 @@ RUN mvn package -DskipTests
 FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
 
-COPY keyist.p12 .
+COPY keyist-resource.jks .
 
 COPY --from=build /build/target/*.jar resource_server.jar
 

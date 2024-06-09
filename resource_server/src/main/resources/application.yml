@@ -5,13 +5,17 @@ logging:
         SQL: INFO
 server:
   ssl:
-    key-store-type: PKCS12
-    key-store: /app/keyist.p12
+    key-store: /app/keyist-resource.jks
     key-store-password: password1
-    key-alias: keyist
+    key-alias: keyist_resource
     enabled: true
-    trust-store: /app/keyist.p12
+    trust-store: /app/keyist-resource.jks
     trust-store-password: password1
+    ciphers:
+      - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
   error:
     whitelabel:
       enabled: true
