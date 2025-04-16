@@ -38,6 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(final HttpSecurity http) throws Exception {
         http.cors().and()
                 .csrf().disable()
+                .requiresChannel(channelRequestMatcherRegistry -> channelRequestMatcherRegistry.anyRequest().requiresSecure())
                 .authorizeRequests()
                 .antMatchers(securityConstants.getWhitelist()).permitAll()
                 .antMatchers("/api/**").hasAnyRole("ADMIN", "MANAGER", "USER")
